@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysInventoryCreateDlg" widgetVar="UagSysInventoryCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUagSysInventoryTitle}">
+            <h:form id="UagSysInventoryCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysInventoryController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceType}" for="resourceType" />
+                        <p:inputText id="resourceType" value="#{uagSysInventoryController.selected.resourceType}" title="#{bundle.CreateUagSysInventoryTitle_resourceType}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceType}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceIsbn}" for="resourceIsbn" />
+                        <p:inputText id="resourceIsbn" value="#{uagSysInventoryController.selected.resourceIsbn}" title="#{bundle.CreateUagSysInventoryTitle_resourceIsbn}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceIsbn}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceTitle}" for="resourceTitle" />
+                        <p:inputText id="resourceTitle" value="#{uagSysInventoryController.selected.resourceTitle}" title="#{bundle.CreateUagSysInventoryTitle_resourceTitle}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceTitle}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceAuthor}" for="resourceAuthor" />
+                        <p:inputText id="resourceAuthor" value="#{uagSysInventoryController.selected.resourceAuthor}" title="#{bundle.CreateUagSysInventoryTitle_resourceAuthor}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceAuthor}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourcePublisher}" for="resourcePublisher" />
+                        <p:inputText id="resourcePublisher" value="#{uagSysInventoryController.selected.resourcePublisher}" title="#{bundle.CreateUagSysInventoryTitle_resourcePublisher}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourcePublisher}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceLanguage}" for="resourceLanguage" />
+                        <p:inputText id="resourceLanguage" value="#{uagSysInventoryController.selected.resourceLanguage}" title="#{bundle.CreateUagSysInventoryTitle_resourceLanguage}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceLanguage}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourcePages}" for="resourcePages" />
+                        <p:inputText id="resourcePages" value="#{uagSysInventoryController.selected.resourcePages}" title="#{bundle.CreateUagSysInventoryTitle_resourcePages}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourcePages}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysInventoryLabel_resourceLocation}" for="resourceLocation" />
+                        <p:inputText id="resourceLocation" value="#{uagSysInventoryController.selected.resourceLocation}" title="#{bundle.CreateUagSysInventoryTitle_resourceLocation}" required="true" requiredMessage="#{bundle.CreateUagSysInventoryRequiredMessage_resourceLocation}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{uagSysInventoryController.create}" value="#{bundle.Save}" update="display,:UagSysInventoryListForm:datalist,:growl" oncomplete="handleSubmit(args,'UagSysInventoryCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UagSysInventoryCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysLendServiceViewDlg" widgetVar="UagSysLendServiceViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUagSysLendServiceTitle}">
+            <h:form id="UagSysLendServiceViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysLendServiceController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceId}"/>
+                        <h:outputText value="#{uagSysLendServiceController.selected.lendServiceId}" title="#{bundle.ViewUagSysLendServiceTitle_lendServiceId}"/>
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceStartDate}"/>
+                        <h:outputText value="#{uagSysLendServiceController.selected.lendServiceStartDate}" title="#{bundle.ViewUagSysLendServiceTitle_lendServiceStartDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceEndDate}"/>
+                        <h:outputText value="#{uagSysLendServiceController.selected.lendServiceEndDate}" title="#{bundle.ViewUagSysLendServiceTitle_lendServiceEndDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceActive}"/>
+                        <p:selectBooleanCheckbox value="#{uagSysLendServiceController.selected.lendServiceActive}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceResourceId}"/>
+                        <h:outputText value="#{uagSysLendServiceController.selected.lendServiceResourceId}" title="#{bundle.ViewUagSysLendServiceTitle_lendServiceResourceId}"/>
+                        <h:outputText value="#{bundle.ViewUagSysLendServiceLabel_lendServiceUserId}"/>
+                        <h:outputText value="#{uagSysLendServiceController.selected.lendServiceUserId}" title="#{bundle.ViewUagSysLendServiceTitle_lendServiceUserId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UagSysLendServiceViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

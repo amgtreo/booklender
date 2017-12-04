@@ -1,0 +1,74 @@
+.ui-tree {
+    width: 190px;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    color: #404040;
+    font-family: "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.ui-tree-node-label {
+    font-size: 0.8em;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 90% !important;
+}
+
+.ui-widget-content {
+    border: 0;
+}
+
+.bodyNegro {
+    color: #FFFFFF;
+    background-color: #131313;
+    font-family: arial, "verdana", impact;
+    font-weight: extra-bold;
+}
+
+.whiteBody {
+    color: #131313;
+    font-family: arial, "verdana", impact;
+    font-weight: extra-bold;
+}
+
+body {
+    background-image: url("../../images/tweed.png");
+    background-repeat: repeat-x|repeat-y|repeat;
+}
+
+.fontSignPage {
+    font-size: 10px;
+}
+
+.module {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 3%; > h2 { padding : 1rem;
+                       margin: 0 0 0.5rem 0;
+    }
+
+    p {
+        padding: 0 1rem;
+    }
+
+}
+
+.cabecera {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    font-family: arial, "verdana", impact;
+    font-weight: bold;
+}
+
+.negrita {
+    font-weight: bold !important;
+    font-size: 90% !important;
+}
+
+

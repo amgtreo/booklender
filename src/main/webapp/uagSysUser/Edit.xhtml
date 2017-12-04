@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysUserEditDlg" widgetVar="UagSysUserEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUagSysUserTitle}">
+            <h:form id="UagSysUserEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysUserController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userCredentialId}" for="userCredentialId" />
+                        <p:inputText id="userCredentialId" value="#{uagSysUserController.selected.userCredentialId}" title="#{bundle.EditUagSysUserTitle_userCredentialId}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userCredentialId}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userName}" for="userName" />
+                        <p:inputText id="userName" value="#{uagSysUserController.selected.userName}" title="#{bundle.EditUagSysUserTitle_userName}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userName}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userEmail}" for="userEmail" />
+                        <p:inputText id="userEmail" value="#{uagSysUserController.selected.userEmail}" title="#{bundle.EditUagSysUserTitle_userEmail}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userEmail}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userPassword}" for="userPassword" />
+                        <p:inputText id="userPassword" value="#{uagSysUserController.selected.userPassword}" title="#{bundle.EditUagSysUserTitle_userPassword}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userPassword}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userCareer}" for="userCareer" />
+                        <p:inputText id="userCareer" value="#{uagSysUserController.selected.userCareer}" title="#{bundle.EditUagSysUserTitle_userCareer}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userCareer}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userActiveCode}" for="userActiveCode" />
+                        <p:inputText id="userActiveCode" value="#{uagSysUserController.selected.userActiveCode}" title="#{bundle.EditUagSysUserTitle_userActiveCode}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userActiveCode}"/>
+                        <p:outputLabel value="#{bundle.EditUagSysUserLabel_userActive}" for="userActive" />
+                        <p:selectBooleanCheckbox id="userActive" value="#{uagSysUserController.selected.userActive}" required="true" requiredMessage="#{bundle.EditUagSysUserRequiredMessage_userActive}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{uagSysUserController.update}" value="#{bundle.Save}" update="display,:UagSysUserListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UagSysUserEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UagSysUserEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

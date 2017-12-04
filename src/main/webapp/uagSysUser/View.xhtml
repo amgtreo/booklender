@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysUserViewDlg" widgetVar="UagSysUserViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUagSysUserTitle}">
+            <h:form id="UagSysUserViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysUserController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userId}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userId}" title="#{bundle.ViewUagSysUserTitle_userId}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userCredentialId}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userCredentialId}" title="#{bundle.ViewUagSysUserTitle_userCredentialId}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userName}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userName}" title="#{bundle.ViewUagSysUserTitle_userName}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userEmail}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userEmail}" title="#{bundle.ViewUagSysUserTitle_userEmail}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userPassword}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userPassword}" title="#{bundle.ViewUagSysUserTitle_userPassword}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userCareer}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userCareer}" title="#{bundle.ViewUagSysUserTitle_userCareer}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userActiveCode}"/>
+                        <h:outputText value="#{uagSysUserController.selected.userActiveCode}" title="#{bundle.ViewUagSysUserTitle_userActiveCode}"/>
+                        <h:outputText value="#{bundle.ViewUagSysUserLabel_userActive}"/>
+                        <p:selectBooleanCheckbox value="#{uagSysUserController.selected.userActive}" disabled="true"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UagSysUserViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

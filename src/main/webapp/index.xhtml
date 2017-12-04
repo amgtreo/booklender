@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet library="css" name="commonStyleSheet.css"/>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+        <title>Book Lender v1.0</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="formInitial">
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:spacer height="150px"></p:spacer>
+                <table align="center">
+                    <tr>
+                        <td align="center"><p:separator id="customSeparator"
+                                 style="height:1px; visibility: hidden" /> <p:panel
+                                 header="Sign in to Book Lender">
+                            <h:panelGrid columns="2" style="display:block; text-align:center">
+                                <h:outputText value="E-mail:" />
+                                <p:inputText id="usr" value="#{index.user}" />
+                                <h:outputText value="" />
+                                <h:outputText value="Case sensitive" styleClass="fontSignPage"
+                                              style="display:block; text-align:right" />
+                                <h:outputText value="Password:" />
+                                <p:password id="passwd" value="#{index.password}" />
+                                <h:outputText value="" />
+                                <h:outputLink value="url" styleClass="fontSignPage"
+                                              style="display:block; text-align:right">
+                                    <h:outputText value="Forgot your password?" />
+                                </h:outputLink>
+                                <p:commandButton value="Sign in" styleClass="boton"
+                                                 action="#{index.authentification}" update="growl formInitial" />
+                                <h:outputLink styleClass="fontSignPage"
+                                              style="display:block; text-align:right"
+                                              onclick="PF('dlg2').show(); return false;">
+                                    <h:outputText value="Sign up" />
+                                </h:outputLink>
+                            </h:panelGrid>
+                        </p:panel> <p:separator id="separador" style="height:5px; visibility: hidden" />
+
+                    </td>
+                </tr>
+            </table>
+            <footer>
+                <table border="0" width="80%" align="center">
+                    <tr>
+                        <td style="font-size: 11pt; color: #C0C0C0" align="center"><h:outputText
+                                value="Powered by " /> <image id="logoJboss"
+                                   src="images/640px-JBoss_logo.png" width="50" height="30" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><image id="logoOpenshift"
+                                                  src="images/openshift_logo_wide_blk250.png" width="100"
+                                                  height="30" /></td>
+                    </tr>
+                </table>
+            </footer>
+        </h:form>
+        <p:dialog header="Create an account | Book Lender" widgetVar="dlg2"
+                  modal="true" draggable="false" resizable="false">
+            <h:form id="dataForm">
+                <table cellpadding="5">
+                    <tr>
+                        <td>
+                            <h:outputText value="E-mail" />
+                        </td>
+                        <td>
+                            <p:inputText id="uagEmail" value="#{SignUpForm.uagSysUser.userEmail}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Password:" />
+                        </td>
+                        <td>
+                            <p:password id="uagPassword" feedback="true" value="#{SignUpForm.uagSysUser.userPassword}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Password Confirmation:" />
+                        </td>
+                        <td>
+                            <p:password id="uagPasswordConfirmation" feedback="true" value="#{SignUpForm.passwordConfirmation}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Name" />
+                        </td>
+                        <td>
+                            <p:inputText id="uagName" value="#{SignUpForm.uagSysUser.userName}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Credential Id" />
+                        </td>
+                        <td>
+                            <p:inputText id="uagLCredentialId" value="#{SignUpForm.uagSysUser.userCredentialId}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Career" />
+                        </td>
+                        <td>
+                            <p:inputText id="uagCareer" value="#{SignUpForm.uagSysUser.userCareer}" />
+                        </td>
+                    </tr>
+                </table>
+                <p:separator />
+                <p:captcha label="Captcha" />
+                <p:separator />
+                <p:commandButton value="Sign Up" icon="ui-icon-check" ajax="false"
+                                 action="#{SignUpForm.saveUser}" />
+            </h:form>
+        </p:dialog>
+    </h:body>
+</html>

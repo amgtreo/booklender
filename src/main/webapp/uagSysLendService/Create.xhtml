@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysLendServiceCreateDlg" widgetVar="UagSysLendServiceCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUagSysLendServiceTitle}">
+            <h:form id="UagSysLendServiceCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysLendServiceController.selected != null}">
+                       <p:outputLabel value="#{bundle.CreateUagSysLendServiceLabel_lendServiceStartDate}" for="lendServiceStartDate" />
+                        <p:calendar id="lendServiceStartDate" pattern="MM/dd/yyyy" value="#{uagSysLendServiceController.selected.lendServiceStartDate}" title="#{bundle.EditUagSysLendServiceTitle_lendServiceStartDate}" required="true" requiredMessage="#{bundle.EditUagSysLendServiceRequiredMessage_lendServiceStartDate}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysLendServiceLabel_lendServiceEndDate}" for="lendServiceEndDate" />
+                        <p:calendar id="lendServiceEndDate" pattern="MM/dd/yyyy" value="#{uagSysLendServiceController.selected.lendServiceEndDate}" title="#{bundle.EditUagSysLendServiceTitle_lendServiceEndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysLendServiceLabel_lendServiceActive}" for="lendServiceActive" />
+                        <p:selectBooleanCheckbox id="lendServiceActive" value="#{uagSysLendServiceController.selected.lendServiceActive}" required="true" requiredMessage="#{bundle.EditUagSysLendServiceRequiredMessage_lendServiceActive}"/>
+                        <p:outputLabel value="#{bundle.CreateUagSysLendServiceLabel_lendServiceResourceId}" for="lendServiceResourceId" />
+                        <p:selectOneMenu id="lendServiceResourceId" value="#{uagSysLendServiceController.selected.lendServiceResourceId}" required="true" requiredMessage="#{bundle.EditUagSysLendServiceRequiredMessage_lendServiceResourceId}">
+                            <f:selectItems value="#{uagSysInventoryController.itemsBooks}"
+                                           var="lendServiceResourceIdItem"
+                                           itemValue="#{lendServiceResourceIdItem}" itemLabel="#{lendServiceResourceIdItem.resourceTitle}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUagSysLendServiceLabel_lendServiceUserId}" for="lendServiceUserId" />
+                        <p:selectOneMenu id="lendServiceUserId" value="#{uagSysLendServiceController.selected.lendServiceUserId}" required="true" requiredMessage="#{bundle.EditUagSysLendServiceRequiredMessage_lendServiceUserId}">
+                            <f:selectItems value="#{uagSysUserController.itemsAvailableSelectOne}"
+                                           var="lendServiceUserIdItem"
+                                           itemValue="#{lendServiceUserIdItem}" itemLabel="#{lendServiceUserIdItem.userEmail}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{uagSysLendServiceController.create}" value="#{bundle.Save}" update="display,:UagSysLendServiceListForm:datalist,:growl" oncomplete="handleSubmit(args,'UagSysLendServiceCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UagSysLendServiceCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

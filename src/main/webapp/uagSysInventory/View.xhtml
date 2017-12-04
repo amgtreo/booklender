@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UagSysInventoryViewDlg" widgetVar="UagSysInventoryViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUagSysInventoryTitle}">
+            <h:form id="UagSysInventoryViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uagSysInventoryController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceId}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceId}" title="#{bundle.ViewUagSysInventoryTitle_resourceId}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceType}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceType}" title="#{bundle.ViewUagSysInventoryTitle_resourceType}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceIsbn}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceIsbn}" title="#{bundle.ViewUagSysInventoryTitle_resourceIsbn}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceTitle}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceTitle}" title="#{bundle.ViewUagSysInventoryTitle_resourceTitle}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceAuthor}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceAuthor}" title="#{bundle.ViewUagSysInventoryTitle_resourceAuthor}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourcePublisher}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourcePublisher}" title="#{bundle.ViewUagSysInventoryTitle_resourcePublisher}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceLanguage}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceLanguage}" title="#{bundle.ViewUagSysInventoryTitle_resourceLanguage}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourcePages}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourcePages}" title="#{bundle.ViewUagSysInventoryTitle_resourcePages}"/>
+                        <h:outputText value="#{bundle.ViewUagSysInventoryLabel_resourceLocation}"/>
+                        <h:outputText value="#{uagSysInventoryController.selected.resourceLocation}" title="#{bundle.ViewUagSysInventoryTitle_resourceLocation}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UagSysInventoryViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
